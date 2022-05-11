@@ -44,7 +44,7 @@ class HelloViewModel : ViewModel() {
 fun HelloScreen(helloViewModel: HelloViewModel = viewModel()) {
     val name: String by helloViewModel.name.observeAsState("")
     HelloContent(name = name, onNameChange = { helloViewModel.onNameChange(it) })
-}
+} tessst
 
 @Composable
 fun HelloContent(name: String, onNameChange: (String) -> Unit) {
