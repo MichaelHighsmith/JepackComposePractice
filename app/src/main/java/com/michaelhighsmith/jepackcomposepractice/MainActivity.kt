@@ -26,22 +26,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            //Greeting("Mike")
             HelloScreen()
         }
     }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Composable
-fun TextButton() {
- /*   Box(modifier = Modifier.clickable(onClick = {
-        Text(text = text)
-    }))*/
 }
 
 class HelloViewModel : ViewModel() {
