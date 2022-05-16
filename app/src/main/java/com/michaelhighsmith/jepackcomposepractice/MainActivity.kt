@@ -15,6 +15,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.LiveData
@@ -40,15 +41,22 @@ class HelloViewModel : ViewModel() {
     }
 }
 
+@Preview
+@Composable
+fun PreviewHelloScreen() {
+    HelloScreen()
+}
+
 @Composable
 fun HelloScreen(helloViewModel: HelloViewModel = viewModel()) {
     val name: String by helloViewModel.name.observeAsState("")
     HelloContent(name = name, onNameChange = { helloViewModel.onNameChange(it) })
-} tessst
+}
 
 @Composable
 fun HelloContent(name: String, onNameChange: (String) -> Unit) {
-    val intent = Intent(LocalContext.current, NotificaitonSettingsActivity::class.java)
+    val notifcationSettingsIntent = Intent(LocalContext.current, NotificaitonSettingsActivity::class.java)
+    val jetpackTutorialIntent = Intent(LocalContext.current, JetpackTutorialActivity::class.java)
     val context = LocalContext.current
 
     Column(modifier = Modifier.padding(16.dp)) {
@@ -65,9 +73,15 @@ fun HelloContent(name: String, onNameChange: (String) -> Unit) {
         )
 
         Button(onClick = {
-            startActivity(context, intent, null) }
+            startActivity(context, notifcationSettingsIntent, null) }
         ) {
             Text("Notification Settings")
+        }
+
+        Button(onClick = {
+            startActivity(context, jetpackTutorialIntent, null) }
+        ) {
+            Text("Jetpack Tutorial")
         }
     }
 }

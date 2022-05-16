@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".NotificaitonSettingsActivity"/>
+        <activity android:name=".JetpackTutorialActivity"/>
     </application>
 
 </manifest>
